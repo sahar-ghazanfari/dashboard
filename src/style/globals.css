@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-estedad);
+  outline: none;
+}
+
+:root {
+  --color-primary: #5d5fef;
+  --color-red: #fa5a7d;
+  --color-red-light: #ffe2e5;
+  --color-orange: #ff947a;
+  --color-orange-light: #fff4de;
+  --color-green: #00e096;
+  --color-green-light: #dcfce7;
+  --color-purple: #bf83ff;
+  --color-purple-light: #f3e8ff;
+  --color-gray-1: #eeeeee;
+  --color-gray-2: #333333;
+  --color-gary-3: #737791;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
