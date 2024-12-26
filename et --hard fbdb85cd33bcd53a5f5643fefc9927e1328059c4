@@ -1,0 +1,24 @@
+[33mcommit fbdb85cd33bcd53a5f5643fefc9927e1328059c4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: 67787cf 4bbc558
+Author: sahar <saharghazanfariast@gmail.com>
+Date:   Tue Dec 24 22:28:50 2024 +0330
+
+    Merge branch 'main' of https://github.com/sahar-ghazanfari/dashboard
+
+[33mcommit 67787cf36cf991e587c6bbb97b96d77c24f3bdff[m
+Author: sahar <saharghazanfariast@gmail.com>
+Date:   Tue Dec 24 22:03:27 2024 +0330
+
+    header and sidebar
+
+[33mcommit 4bbc5583c5748a3bb7ce65193d33ee51c37c38da[m
+Author: sahar <saharghazanfariast@gmail.com>
+Date:   Sun Dec 22 17:36:54 2024 +0330
+
+    Initial commit
+
+[33mcommit 6b89ab82829edfa7049419dee53c0e940a107d22[m
+Author: sahar <saharghazanfariast@gmail.com>
+Date:   Thu Dec 19 19:24:47 2024 +0330
+
+    Initial commit from Create Next App
