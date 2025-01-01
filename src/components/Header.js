@@ -5,41 +5,31 @@ import { IoIosSearch } from "react-icons/io";
 import { MdNotifications } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MenuItem, Select, FormControl } from "@mui/material";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
-const countries = [
-  {
-    value: "ir",
-    code: "IR",
-    label: "Fa",
-    src: "https://flagcdn.com/w20/${option.code.toLowerCase()}.png",
-  },
-  {
-    value: "us",
-    code: "US",
-    label: "Us",
-    src: "https://flagcdn.com/w20/${option.code.toLowerCase()}.png",
-  },
-];
-
-
-
-function Header() {
+export function Header() {
   const [notification, setNotification] = useState(false);
-  const [language, setLanguage] = useState("en");
+  const { locale, changeLanguage } = useLanguage();
+  const router = useRouter();
+  const t = useTranslations("dashboard");
 
-    const handleChange = (event) => {
-      setLanguage(event.target.value);
-    };
+  const handleChange = (event) => {
+    const newLocale = event.target.value;
+    changeLanguage(newLocale);  
+    router.push(router.pathname, router.asPath, { locale: newLocale });
+  };
 
   return (
     <div className="flex justify-between items-center">
       <RxHamburgerMenu className="block lg:hidden" />
-      <div className="hidden lg:flex lg: gap-x-6">
+      <div className="hidden lg:flex lg:gap-x-6">
         <div className="flex">
           <select className="pr-3 border-white border">
-            <option value="Profile">Profile</option>
-            <option value="Settings">Settings</option>
-            <option value="Logout">Logout</option>
+            <option value="Profile">{t("profile")}</option>
+            <option value="Settings">{t("settings")}</option>
+            <option value="Logout">{t("logout")}</option>
           </select>
           <div className="relative w-10 h-10 opacity-20">
             <Image src={"/images/user.jpg"} alt="user" fill />
@@ -48,23 +38,23 @@ function Header() {
         <button className="p-2 relative text-orange bg-orange_light w-fit flex justify-self-center items-center rounded-lg text-2xl">
           <MdNotifications />
           <div
-            className={` ${
+            className={`${
               notification
                 ? "absolute top-0 right-0 animate-ping w-2 h-2 rounded-full bg-red"
                 : ""
-            } `}
+            }`}
           ></div>
           <div
-            className={` ${
+            className={`${
               notification
                 ? "absolute top-0 right-0 w-2 h-2 rounded-full bg-red"
                 : ""
-            } `}
+            }`}
           ></div>
         </button>
         <FormControl className="relative">
           <Select
-            value={language}
+            value={locale}
             onChange={handleChange}
             displayEmpty
             className="px-3 rounded-lg focus:outline-none"
@@ -107,60 +97,14 @@ function Header() {
           <input
             type="search"
             className="w-full bg-[#F9FAFB] py-2 pr-4 pl-24 rounded-lg focus:outline-none"
-            placeholder="جستجو"
+            placeholder={t("search")}
           />
           <IoIosSearch className="absolute top-1/2 left-4 transform -translate-y-1/2 text-primary w-5 h-5" />
         </div>
-        <div className="text-3xl font-bold text-[#151D48]">Dashboard</div>
+        <div className="text-3xl font-bold text-[#151D48]">
+          {t("dashboard")}
+        </div>
       </div>
     </div>
   );
 }
-
-export default Header;
-
-// <div className="flex items-center justify-between w-full">
-//   {/* <div></div> */}
-//   <RxHamburgerMenu className="block lg:hidden" />
-//   <div className="hidden lg:grid lg:grid-cols-10 lg:h-full lg:items-center">
-//     <div className="col-span-1">
-//       <select className="pr-3 border-white border">
-//         <option value="Profile">Profile</option>
-//         <option value="Settings">Settings</option>
-//         <option value="Logout">Logout</option>
-//       </select>
-//     </div>
-//     <button className="p-2 relative text-orange bg-orange_light w-fit flex justify-self-center items-center rounded-lg text-2xl">
-//       <MdNotifications />
-//       <div
-//         className={` ${
-//           notification
-//             ? "absolute top-0 right-0 animate-ping w-2 h-2 rounded-full bg-red"
-//             : ""
-//         } `}
-//       ></div>
-//       <div
-//         className={` ${
-//           notification
-//             ? "absolute top-0 right-0 w-2 h-2 rounded-full bg-red"
-//             : ""
-//         } `}
-//       ></div>
-//     </button>
-//     <select className="pr-3 border border-white">
-//       <option value="fa">fa</option>
-//       <option value="en">en</option>
-//     </select>
-//     <div className="relative col-start-5 col-span-4">
-//       <input
-//         type="search"
-//         className="w-full bg-[#F9FAFB] py-2 pr-4 pl-14 rounded-lg focus:outline-none"
-//         placeholder="جستجو"
-//       />
-//       <IoIosSearch className="absolute top-1/2 left-4 transform -translate-y-1/2 text-primary w-5 h-5" />
-//     </div>
-//   </div>
-//   <div className="col-end-10 text-3xl font-bold text-[#151D48]">
-//     Dashboard
-//   </div>
-// </div>;
