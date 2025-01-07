@@ -1,15 +1,13 @@
 "use client";
 import Charts from "@/components/Charts";
-import {Header} from "@/components/Header";
+import { Header } from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
-import { useTranslations } from "next-intl";
-
-// export const metadata = {
-//   title: "داشبورد",
-// };
+import { useLocale } from "@/context/LocaleContext";
+import { useTranslation } from "@/hooks/useTranslate";
 
 export default function Dashboard() {
-  const t = useTranslations("dashboard");
+  const { locale } = useLocale();
+  const { t } = useTranslation(locale);
 
   return (
     <div className="grid grid-cols-12 grid-rows-12 h-screen">

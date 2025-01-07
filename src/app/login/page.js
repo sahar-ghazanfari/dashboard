@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaUserAlt } from "react-icons/fa";
 
 export default function LoginSignup() {
@@ -10,45 +10,8 @@ export default function LoginSignup() {
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword(!showPassword);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    const adminNum = "09123456789";
-
-    if (password.length < 8) {
-      toast("⚠ رمز عبور از ۸ حرف کمتر است");
-      return;
-    }
-    if (phoneNumber.length < 11) {
-      toast("⚠ شماره موبایل از ۱۱ حرف کمتر است");
-      return;
-    }
-
-    const url = isLogin ? "/login" : "/signup";
-
-    try {
-      const response = await fetch(`http://localhost:5004${url}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ phoneNumber, password }),
-      });
-
-      // const data = await response.json();
-
-      if (response.ok) {
-        if (isLogin && phoneNumber === adminNum) {
-          window.location.href = "/dashboard";
-        } else {
-          setIsLogin(true);
-          window.location.href = "/not-admin";
-          toast("ورود موفقیت امیز بود");
-        }
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
   };
 
   return (

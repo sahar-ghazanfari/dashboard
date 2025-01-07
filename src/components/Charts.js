@@ -3,25 +3,25 @@ import { BarChart1 } from "./BarChart";
 import { SimpleLineChart } from "./SimpleLine";
 import SimpleBarChart from "./SimpleBarChart";
 import StackedBarChart from "./StackedBarChart";
-import ContryChart from "@/components/ContryChart"
-import LinearProgress from "@/components/LinearProgress"
+import ContryChart from "@/components/ContryChart";
+import LinearProgress from "@/components/LinearProgress";
 
-export default function Charts() {
+export default function Charts({ t }) {
   return (
-    <div className="bg-[#FAFBFC] lg:h-full lg:gap-6 grid grid-cols-1 lg:grid-cols-5 lg:grid-rows-3">
+    <div className="bg-[#FAFBFC] lg:h-full lg:gap-6 grid  grid-cols-1 lg:grid-cols-5 lg:grid-rows-3">
       <div className="bg-white lg:col-span-2 rounded-lg">
         <h2 className="flex justify-end text-[#05004E] font-bold">
-          Visitor Insights
+          {t("Visitor Insights")}
         </h2>
         <SimpleLineChart />
       </div>
       <div className="bg-white lg:col-span-3 rounded-lg ">
         <div className="flex justify-between py-4">
           <button className="border border-[#C3D3E2] px-2 py-1 rounded-lg text-[#0F3659]">
-            export
+            {t("export")}
           </button>
           <h2 className="flex justify-end text-[#05004E] font-bold">
-            Todays sales
+            {t("Today's Sales")}
           </h2>
         </div>
         <div className="flex flex-row-reverse justify-between gap-3 lg:h-3/4">
@@ -33,19 +33,19 @@ export default function Charts() {
       </div>
       <div className="bg-white lg:col-span-1 rounded-lg">
         <h2 className="flex justify-end text-[#05004E] font-bold">
-          Target vs Reality
+          {t("Target vs Reality")}
         </h2>
         <BarChart1 />
       </div>
       <div className="bg-white lg:col-span-1 rounded-lg">
         <h2 className="flex justify-end text-[#05004E] font-bold">
-          Customer Satisfaction
+          {t("Customer Satisfaction")}
         </h2>
         <StackedAreaChart />
       </div>
       <div className="bg-white lg:col-span-3 rounded-lg">
         <h2 className="flex justify-end text-[#05004E] font-bold">
-          Total Revenue
+          {t("Total Revenue")}
         </h2>
         <SimpleBarChart />
       </div>
@@ -56,7 +56,7 @@ export default function Charts() {
         <ContryChart />
       </div>
       <div className="bg-white lg:col-span-3 rounded-lg">
-        <LinearProgress />
+        <LinearProgress t={t}/>
       </div>
     </div>
   );

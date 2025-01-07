@@ -43,16 +43,16 @@ const products = [
   },
 ];
 
-export default function TopProductsTable() {
+export default function TopProductsTable({ t }) {
   return (
     <TableContainer component={Paper} style={{ height: "100%", width: "100%" }}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell>#</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Popularity</TableCell>
-            <TableCell>Sales</TableCell>
+            <TableCell>{t("Name")}</TableCell>
+            <TableCell>{t("Popularity")}</TableCell>
+            <TableCell>{t("Sales")}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

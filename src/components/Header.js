@@ -4,22 +4,12 @@ import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
 import { MdNotifications } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { MenuItem, Select, FormControl } from "@mui/material";
-import { useLanguage } from "@/context/LanguageContext";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import LanguageSelector from "./LanguageSelector";
+import { useLocale } from "@/context/LocaleContext";
 
-export function Header() {
+export function Header({ t }) {
+  const { locale, setLocale } = useLocale();
   const [notification, setNotification] = useState(false);
-  const { locale, changeLanguage } = useLanguage();
-  const router = useRouter();
-  const t = useTranslations("dashboard");
-
-  const handleChange = (event) => {
-    const newLocale = event.target.value;
-    changeLanguage(newLocale);  
-    router.push(router.pathname, router.asPath, { locale: newLocale });
-  };
 
   return (
     <div className="flex justify-between items-center">
@@ -52,45 +42,7 @@ export function Header() {
             }`}
           ></div>
         </button>
-        <FormControl className="relative">
-          <Select
-            value={locale}
-            onChange={handleChange}
-            displayEmpty
-            className="px-3 rounded-lg focus:outline-none"
-            renderValue={(selected) => (
-              <div className="flex flex-row-reverse items-center gap-2">
-                <img
-                  src={
-                    selected === "en"
-                      ? "https://flagcdn.com/w40/us.png"
-                      : "https://flagcdn.com/w40/ir.png"
-                  }
-                  alt={selected}
-                  className="w-5 h-5 rounded-full"
-                />
-                <span className="capitalize">{selected.toUpperCase()}</span>
-              </div>
-            )}
-          >
-            <MenuItem value="en" className="flex items-center gap-2">
-              <img
-                src="https://flagcdn.com/w40/us.png"
-                alt="en"
-                className="w-5 h-5 rounded-full"
-              />
-              English
-            </MenuItem>
-            <MenuItem value="fa" className="flex items-center gap-2">
-              <img
-                src="https://flagcdn.com/w40/ir.png"
-                alt="fa"
-                className="w-5 h-5 rounded-full"
-              />
-              فارسی
-            </MenuItem>
-          </Select>
-        </FormControl>
+        <LanguageSelector locale={locale} setLocale={setLocale} />
       </div>
       <div className="flex gap-x-8">
         <div className="relative hidden lg:block">
