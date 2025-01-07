@@ -22,7 +22,11 @@ export function SimpleLineChart() {
     <Box
       sx={{
         width: "100%",
-        height: { xs: "250px", sm: "100%" },
+        height: {
+          xs: "300px",
+          sm: "400px",
+          md: "100%",
+        },
         overflow: "hidden",
       }}
     >

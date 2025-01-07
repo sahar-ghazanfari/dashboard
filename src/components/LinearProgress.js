@@ -44,6 +44,7 @@ const products = [
 ];
 
 export default function TopProductsTable({ t }) {
+  
   return (
     <TableContainer component={Paper} style={{ height: "100%", width: "100%" }}>
       <Table>

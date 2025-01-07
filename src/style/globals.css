@@ -35,3 +35,17 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+@layer components {
+  .heading-2 {
+    @apply m-4 lg:m-0 flex justify-end text-[#05004E] font-bold;
+  }
+
+  .chart-informations {
+    @apply rounded-xl flex flex-col justify-between p-4;
+  }
+
+  .charts {
+    @apply bg-white lg:col-span-1 rounded-lg border-b-2 lg:border-none;
+  }
+}
