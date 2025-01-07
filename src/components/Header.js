@@ -8,7 +8,7 @@ import LanguageSelector from "./LanguageSelector";
 import { useLocale } from "@/context/LocaleContext";
 
 export function Header({ t }) {
-  const { locale, setLocale } = useLocale();
+  const { locale } = useLocale();
   const [notification, setNotification] = useState(false);
 
   return (
@@ -25,7 +25,7 @@ export function Header({ t }) {
             <Image src={"/images/user.jpg"} alt="user" fill />
           </div>
         </div>
-        <button className="p-2 relative text-orange bg-orange_light w-fit flex justify-self-center items-center rounded-lg text-2xl">
+        <button className="p-2 relative text-orange bg-orange_light w-fit flex justify-center items-center rounded-lg text-2xl">
           <MdNotifications />
           <div
             className={`${
@@ -42,16 +42,22 @@ export function Header({ t }) {
             }`}
           ></div>
         </button>
-        <LanguageSelector locale={locale} setLocale={setLocale} />
+        <LanguageSelector />
       </div>
       <div className="flex gap-x-8">
         <div className="relative hidden lg:block">
           <input
             type="search"
-            className="w-full bg-[#F9FAFB] py-2 pr-4 pl-24 rounded-lg focus:outline-none"
+            className={`w-full bg-[#F9FAFB] py-2  rounded-lg focus:outline-none ${
+              locale === "fa" ? "text-right pr-6 pl-24" : "text-left pl-6 pr-24"
+            }`}
             placeholder={t("search")}
           />
-          <IoIosSearch className="absolute top-1/2 left-4 transform -translate-y-1/2 text-primary w-5 h-5" />
+          <IoIosSearch
+            className={`absolute top-1/2 ${
+              locale === "fa" ? "right-4" : "left-4"
+            } transform -translate-y-1/2 text-primary w-5 h-5`}
+          />
         </div>
         <div className="text-3xl font-bold text-[#151D48]">
           {t("dashboard")}
