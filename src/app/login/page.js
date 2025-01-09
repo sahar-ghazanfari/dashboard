@@ -1,6 +1,7 @@
 "use client";
+import { useRouter } from "next/router";
 import { useState } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { FaEye, FaEyeSlash, FaUserAlt } from "react-icons/fa";
 
 export default function LoginSignup() {
@@ -9,9 +10,23 @@ export default function LoginSignup() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword(!showPassword);
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isLogin) {
+      if (phoneNumber === "09123456789" && password === "sahar12345") {
+        toast.success("ورود موفقیت‌آمیز بود!");
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 1000);
+      } else {
+        toast.error("شماره یا رمز عبور اشتباه است!");
+      }
+    } else {
+      toast.success("ثبت‌نام موفقیت‌آمیز بود!");
+    }
   };
 
   return (
@@ -86,7 +101,7 @@ export default function LoginSignup() {
         </h1>
         <p className="text-center text-lg line-clamp-2 w-1/2">
           برای وارد شدن به صفحه داشبورد شماره 09123456789 و رمز sahar12345 را
-          وارد کرده در غیر این صورت ثبت نام کنید.
+          وارد کرده.
         </p>
       </div>
     </div>
