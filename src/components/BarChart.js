@@ -21,37 +21,28 @@ export function BarChart1() {
   const monthsToDisplay = dataset.slice(0, 4);
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: {
-          xs: "300px",
-          sm: "400px",
-          md: "100%",
+    // <Box>
+    <BarChart
+      height={200}
+      borderRadius={2}
+      xAxis={[
+        {
+          scaleType: "band",
+          data: monthsToDisplay.map((data) => data.month),
         },
-        overflow: "hidden",
-      }}
-    >
-      <BarChart
-        borderRadius={2}
-        xAxis={[
-          {
-            scaleType: "band",
-            data: monthsToDisplay.map((data) => data.month),
-          },
-        ]}
-        leftAxis={null}
-        series={[
-          {
-            data: monthsToDisplay.map((data) => data.goal),
-            color: "#4AB58E",
-          },
-          {
-            data: monthsToDisplay.map((data) => data.reality),
-            color: "#FFCF00",
-          },
-        ]}
-      />
-    </Box>
+      ]}
+      leftAxis={null}
+      series={[
+        {
+          data: monthsToDisplay.map((data) => data.goal),
+          color: "#4AB58E",
+        },
+        {
+          data: monthsToDisplay.map((data) => data.reality),
+          color: "#FFCF00",
+        },
+      ]}
+    />
+    // </Box>
   );
 }

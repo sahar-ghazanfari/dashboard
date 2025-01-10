@@ -37,7 +37,12 @@ function Header({ t }) {
               <option value="Logout">{t("logout")}</option>
             </select>
             <div className="relative w-10 h-10 opacity-20">
-              <Image src={"/images/user.jpg"} alt="user" fill />
+              <Image
+                sizes="(max-width: 768px) 100vw, 50vw"
+                src={"/images/user.jpg"}
+                alt="user"
+                fill
+              />
             </div>
           </div>
           <button className="p-2 relative text-orange bg-orange_light w-fit flex justify-center items-center rounded-lg text-2xl">

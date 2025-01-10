@@ -15,7 +15,7 @@ function LocaleBasedLayout({ children }) {
   const { locale } = useLocale();
   return (
     <html lang={locale} dir={locale === "fa" ? "ltr" : "rtl"}>
-      <body className={`${estedadFont.variable} font-sans lg:overflow-hidden`}>{children}</body>
+      <body className={`${estedadFont.variable} font-sans overflow-hidden`}>{children}</body>
     </html>
   );
 }

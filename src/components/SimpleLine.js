@@ -19,22 +19,11 @@ const xLabels = [
 
 export function SimpleLineChart() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: {
-          xs: "300px",
-          sm: "400px",
-          md: "100%",
-        },
-        overflow: "hidden",
-      }}
-    >
-      <LineChart
-        series={[{ data: pData }, { data: uData }]}
-        xAxis={[{ scaleType: "point", data: xLabels }]}
-      />
-    </Box>
+    <LineChart
+      height={200}
+      series={[{ data: pData }, { data: uData }]}
+      xAxis={[{ scaleType: "point", data: xLabels }]}
+    />
   );
 }
 

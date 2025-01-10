@@ -16,24 +16,13 @@ const xLabels = [
 
 export default function SimpleBarChart() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: {
-          xs: "300px",
-          sm: "400px",
-          md: "100%",
-        },
-        overflow: "hidden",
-      }}
-    >
-      <BarChart
-        series={[
-          { data: pData, id: "pvId" },
-          { data: uData, id: "uvId" },
-        ]}
-        xAxis={[{ data: xLabels, scaleType: "band" }]}
-      />
-    </Box>
+    <BarChart
+      height={200}
+      series={[
+        { data: pData, id: "pvId" },
+        { data: uData, id: "uvId" },
+      ]}
+      xAxis={[{ data: xLabels, scaleType: "band" }]}
+    />
   );
 }

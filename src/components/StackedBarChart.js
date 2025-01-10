@@ -16,26 +16,15 @@ const xLabels = [
 
 export default function StackedBarChart() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: {
-          xs: "300px",
-          sm: "100px",
-          md: "100%",
-        },
-        overflow: "hidden",
-      }}
-    >
-      <BarChart
-        series={[
-          { data: pData, id: "pvId", stack: "total", color: "#00E096" },
-          { data: uData, id: "uvId", stack: "total", color: "#0095FF" },
-        ]}
-        leftAxis={null}
-        bottomAxis={null}
-        xAxis={[{ data: xLabels, scaleType: "band" }]}
-      />
-    </Box>
+    <BarChart
+      height={200}
+      series={[
+        { data: pData, id: "pvId", stack: "total", color: "#00E096" },
+        { data: uData, id: "uvId", stack: "total", color: "#0095FF" },
+      ]}
+      leftAxis={null}
+      bottomAxis={null}
+      xAxis={[{ data: xLabels, scaleType: "band" }]}
+    />
   );
 }

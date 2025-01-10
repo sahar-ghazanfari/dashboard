@@ -43,9 +43,8 @@ const products = [
 ];
 
 export default function TopProductsTable({ t }) {
-  
   return (
-    <TableContainer component={Paper} style={{ height: "100%", width: "100%" }}>
+    <TableContainer component={Paper} height={100} sx={{ overflow: "auto",maxHeight:"200px" }}>
       <Table>
         <TableHead>
           <TableRow>

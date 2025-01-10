@@ -16,45 +16,34 @@ const xLabels = [
 
 export default function StackedAreaChart() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: {
-          xs: "300px",
-          sm: "400px",
-          md: "100%",
+    <LineChart
+      height={200}
+      series={[
+        {
+          data: uData,
+          area: true,
+          stack: "total",
+          showMark: false,
+          lineWidth: 2,
+          color: "#6eb8f5",
         },
-        overflow: "hidden",
+        {
+          data: pData,
+          area: true,
+          stack: "total",
+          showMark: false,
+          lineWidth: 2,
+          color: "#82ff92",
+        },
+      ]}
+      leftAxis={null}
+      bottomAxis={null}
+      xAxis={[{ scaleType: "point", data: xLabels }]}
+      sx={{
+        [`& .${lineElementClasses.root}`]: {
+          display: "none",
+        },
       }}
-    >
-      <LineChart
-        series={[
-          {
-            data: uData,
-            area: true,
-            stack: "total",
-            showMark: false,
-            lineWidth: 2,
-            color: "#6eb8f5",
-          },
-          {
-            data: pData,
-            area: true,
-            stack: "total",
-            showMark: false,
-            lineWidth: 2,
-            color: "#82ff92",
-          },
-        ]}
-        leftAxis={null}
-        bottomAxis={null}
-        xAxis={[{ scaleType: "point", data: xLabels }]}
-        sx={{
-          [`& .${lineElementClasses.root}`]: {
-            display: "none",
-          },
-        }}
-      />
-    </Box>
+    />
   );
 }
