@@ -21,7 +21,6 @@ export function BarChart1() {
   const monthsToDisplay = dataset.slice(0, 4);
 
   return (
-    // <Box>
     <BarChart
       height={200}
       borderRadius={2}
@@ -43,6 +42,5 @@ export function BarChart1() {
         },
       ]}
     />
-    // </Box>
   );
 }
