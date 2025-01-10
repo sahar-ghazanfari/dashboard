@@ -1,13 +1,16 @@
 "use client";
-import Charts from "@/components/Charts";
-import { Header } from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
 import { useLocale } from "@/context/LocaleContext";
 import { useTranslation } from "@/hooks/useTranslate";
+import Sidebar from "@/components/Sidebar";
+import Charts from "@/components/Charts";
+import Header from "@/components/Header";
 
 export default function Dashboard() {
   const { locale } = useLocale();
   const { t } = useTranslation(locale);
+
+  console.log("Locale:", locale);
+  console.log("Translations:", t);
 
   return (
     <div className="grid grid-cols-12 grid-rows-12 h-screen">

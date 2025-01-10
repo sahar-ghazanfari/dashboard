@@ -9,7 +9,7 @@ import { useLocale } from "@/context/LocaleContext";
 import { IoCloseSharp } from "react-icons/io5";
 import Link from "next/link";
 
-export function Header({ t }) {
+function Header({ t }) {
   const { locale } = useLocale();
   const [notification, setNotification] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -117,3 +117,4 @@ export function Header({ t }) {
     </>
   );
 }
+export default Header;

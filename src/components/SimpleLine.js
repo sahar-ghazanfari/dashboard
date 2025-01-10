@@ -1,4 +1,4 @@
-import * as React from "react";
+"use client";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { Box } from "@mui/material";
 

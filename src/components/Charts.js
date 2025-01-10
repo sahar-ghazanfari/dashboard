@@ -1,3 +1,4 @@
+"use client"
 import StackedAreaChart from "@/components/StackedAreaChart";
 import { BarChart1 } from "./BarChart";
 import { SimpleLineChart } from "./SimpleLine";
@@ -11,7 +12,7 @@ import { HiPencil } from "react-icons/hi";
 import { HiUserAdd } from "react-icons/hi";
 import { useLocale } from "@/context/LocaleContext";
 
-export default function Charts({ t }) {
+ function Charts({ t }) {
   const { locale } = useLocale();
 
   return (
@@ -104,3 +105,4 @@ export default function Charts({ t }) {
     </div>
   );
 }
+export default Charts;
